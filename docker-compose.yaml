@@ -1,0 +1,13 @@
+services: 
+     orderservice:
+         image: andreasdebel/orderservice-api:1.0.0
+         expose:
+         - "8080"
+     nginx:
+         image: nginx:latest
+         volumes:
+         - ./test-env/nginx.conf:/etc/nginx/nginx.conf:ro 
+         depends_on:
+         - orderservice
+         ports:
+         - "4000:4000"

@@ -8,4 +8,4 @@
  FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine AS runtime
  WORKDIR /app
  COPY --from=build /app/published-app /app
- ENTRYPOINT ["dotnet", "/app/OrderServiceAPI.dll"]
+ ENTRYPOINT ["dotnet", "/app/orderserviceapi.dll"]
