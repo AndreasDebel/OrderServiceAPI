@@ -1,0 +1,23 @@
+services: 
+     orderservice:
+         image: andreasdebel/orderserviceapi:1.0.0
+         expose:
+         - "8080"
+     # uploadservice:
+     #     image: andreasdebel/uploadservice-image:1.0.0
+     #     expose:
+     #     - "8080"
+     # userservice:
+     #     image: andreasdebel/userservice-image:1.0.0
+     #     expose:
+     #     - "8080"
+     nginx:
+         image: nginx:latest
+         volumes:
+         - ./nginx.conf:/etc/nginx/nginx.conf:ro 
+         depends_on:
+         - orderservice
+         # - uploadservice
+         # - userservice
+         ports:
+         - "4000:4000"
